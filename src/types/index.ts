@@ -2,6 +2,7 @@ export interface Team {
   id: number
   name: string
   logo: string
+  winner?: boolean | null
 }
 
 export interface League {
@@ -10,6 +11,8 @@ export interface League {
   country: string
   logo: string
   flag: string | null
+  round?: string
+  season?: number
 }
 
 export interface Fixture {
@@ -66,3 +69,29 @@ export interface Match {
   }
   score: Score
 }
+
+export interface LeagueGroup {
+  league: League
+  matches: Match[]
+}
+
+export type TabType = 'live' | 'today' | 'tomorrow' | 'yesterday'
+
+export interface NavItem {
+  id: TabType
+  label: string
+  icon: string
+}
+
+export const POPULAR_LEAGUES = [
+  { id: 2, name: 'دوري أبطال أوروبا', flag: '🏆' },
+  { id: 3, name: 'الدوري الأوروبي', flag: '🌍' },
+  { id: 39, name: 'الدوري الإنجليزي', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿' },
+  { id: 140, name: 'الدوري الإسباني', flag: '🇪🇸' },
+  { id: 135, name: 'الدوري الإيطالي', flag: '🇮🇹' },
+  { id: 78, name: 'الدوري الألماني', flag: '🇩🇪' },
+  { id: 61, name: 'الدوري الفرنسي', flag: '🇫🇷' },
+  { id: 94, name: 'الدوري البرتغالي', flag: '🇵🇹' },
+  { id: 307, name: 'دوري روشن السعودي', flag: '🇸🇦' },
+  { id: 197, name: 'دوري أدنوك الإماراتي', flag: '🇦🇪' },
+]
